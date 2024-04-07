@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health Prediction Result</title>
+    <!-- Bootstrap CSS link -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/result.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Health Prediction Result</h1>
+        </header>
+        <div class="prediction-info">
+            <section id="knn-prediction">
+                <img src="/static/images/knn.png" alt="KNN Prediction Image">
+                <div class="content">
+                    <h2>KNN PREDICTION</h2>
+                    <p>{{ result.knn_model_prediction }}</p>
+                </div>
+            </section>
+            <section id="nb-prediction">
+                <img src="/static/images/nb.png" alt="NB Prediction Image">
+                <div class="content">
+                    <h2>NB PREDICTION</h2>
+                    <p>{{ result.naive_bayes_prediction }}</p>
+                </div>
+            </section>
+            <section id="svm-prediction">
+                <img src="/static/images/svm.png" alt="SVM Prediction Image">
+                <div class="content">
+                    <h2>SVM PREDICTION</h2>
+                    <p>{{ result.svm_model_prediction }}</p>
+                </div>
+            </section>
+        </div>
+        <div id="final-prediction">
+            <p class="final">Final Prediction</p>
+            <p class="result">{{ result.final_prediction }}</p>
+        </div>
+        <div class="options">
+            <form method="POST" action="{{ url_for('view_report') }}">
+                <input type="hidden" name="title" value="{{ title }}">
+                <input type="hidden" name="first_name" value="{{ first_name }}">
+                <input type="hidden" name="last_name" value="{{ last_name }}">
+                <input type="hidden" name="age" value="{{ age }}">
+                <input type="hidden" name="gender" value="{{ gender }}">
+                <input type="hidden" name="symptoms" value="{{ symptoms }}">
+                <button type="submit" class="btn btn-predict">View Medical Report</button>
+            </form>
+            <form action="{{ url_for('report') }}">
+                <button type="submit" class="btn btn-predict">View Confusion Matrix</button>
+            </form>
+        </div>
+    </div>
+    <!-- Bootstrap JS and Popper.js links -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</body>
+</html>

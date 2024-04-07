@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health Prediction Report</title>
+    <link rel="stylesheet" href="/static/report.css">
+</head>
+<body>
+    <h1>Health Prediction Report</h1>
+
+    <!-- Placeholder for reports -->
+    <div class="container">
+        <div>
+            <h2>Summary Report</h2>
+        </div>
+    
+        <!-- Placeholder for KNN confusion matrix -->
+        <div>
+            <h2>KNN Confusion Matrix</h2>
+            <img src="{{ url_for('static', filename='confusion_matrix_knn.png') }}" alt="KNN Confusion Matrix">
+        </div>
+        
+        <!-- Placeholder for NB confusion matrix -->
+        <div>
+            <h2>NB Confusion Matrix</h2>
+            <img src="{{ url_for('static', filename='confusion_matrix_nb.png') }}" alt="NB Confusion Matrix">
+        </div>
+        
+        <!-- Placeholder for SVM confusion matrix -->
+        <div>
+            <h2>SVM Confusion Matrix</h2>
+            <img src="{{ url_for('static', filename='confusion_matrix_svm.png') }}" alt="SVM Confusion Matrix">
+        </div>
+        
+        <!-- Placeholder for Combined Model confusion matrix -->
+        <div>
+            <h2>Combined Model Confusion Matrix</h2>
+            <img src="{{ url_for('static', filename='confusion_matrix_combined_model.png') }}" alt="Combined Model Confusion Matrix">
+        </div>
+    </div>
+</body>
+</html>
